@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1251,4 +1252,1265 @@
         initTheme();
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Dinari | AI Engineer & Computer Vision Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #22d3ee;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --light: #f8fafc;
+            --text: #94a3b8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.1) 100%);
+        }
+
+        /* Hero photo (profile) - centered above the name */
+        .hero-photo {
+            display: block;
+            margin: 0 auto 1.25rem;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255,255,255,0.06);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-photo:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.7);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .skill-bar {
+            background: rgba(99, 102, 241, 0.1);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+            animation: fillBar 2s ease-in-out;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--dark-light);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(34, 211, 238, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-production {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-development {
+            background: var(--warning);
+            color: white;
+        }
+
+        .project-description {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Style lists inside project descriptions to match the description color and spacing */
+        .project-description ul {
+            color: var(--text);
+            margin-top: 0.5rem;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            padding-left: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .project-description ul li {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* Wedtect Feature Section */
+        .wedtect-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.1));
+            border-radius: 1rem;
+            padding: 3rem;
+            margin: 3rem auto; /* center horizontally */
+            max-width: 1200px; /* match other sections */
+        }
+
+        /* Ensure inner content aligns with other sections */
+        .wedtect-section > .wedtect-header,
+        .wedtect-section > .wedtect-features,
+        .wedtect-section > .metrics-grid {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wedtect-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .wedtect-title {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .wedtect-subtitle {
+            font-size: 1.25rem;
+            color: var(--text);
+        }
+
+        .wedtect-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .wedtect-feature {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .wedtect-feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: var(--dark);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            color: var(--text);
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--dark);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 0.5rem;
+            color: var(--light);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            33% {
+                transform: translateY(-100px) translateX(100px);
+            }
+            66% {
+                transform: translateY(100px) translateX(-100px);
+            }
+        }
+
+        /* Mobile Responsive */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--dark);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* On small screens, slightly smaller profile photo */
+            .hero-photo {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--dark-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateX(10px);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1rem;
+            width: calc(50% - 2rem);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            top: 1.5rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            left: -2.5rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: -2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+
+            .timeline-dot {
+                left: -2.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">AD</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#wedtect">Wedtect AI</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- Profile photo centered above name -->
+            <img src="Photo4Porfolio-Cop.jpeg" alt="Ahmed Dinari" class="hero-photo">
+            <h1>Ahmed Dinari</h1>
+            <p class="subtitle">AI Engineer | Computer Vision Specialist | Deep Learning enthusiast</p>
+            <p style="color: var(--text); max-width: 600px; margin: 0 auto 2rem;">
+                Final-year Computer Science student at Polytechnique Sousse, ranked in the top 5 of my cohort. 
+                Specializing in AI-powered defect detection systems and real-time computer vision applications.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <a href="https://github.com/amedo007-poly" target="_blank" class="btn btn-outline">GitHub</a>
+                <a href="https://linkedin.com/in/ahmed-dinari-72b00a306" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text);">
+                I'm a passionate AI engineer with a deep focus on computer vision and deep learning technologies. 
+                My expertise spans from developing real-time facial recognition systems to building industrial-grade 
+                defect detection models. I founded Association VOID at 18, leading 35 members in tech and cultural initiatives.
+            </p>
+            <br>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text);">
+                Currently working on revolutionary AI systems that combine robotics, gamification, and intuitive UX 
+                to solve real-world problems. My latest project, Wedtect, uses advanced YOLO models to detect pipeline 
+                defects with 85%+ accuracy.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3 class="skill-name">Python & AI/ML</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">PyTorch, TensorFlow, Scikit-learn, Roboflow</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Computer Vision</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 92%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">OpenCV, YOLO, DeepFace, CNNs</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Deep Learning</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">Neural Networks, Transfer Learning, OBB</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Game Development</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">Unity, Unreal Engine, Blender</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">Programming Languages</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">C, C#, Java, JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <h3 class="skill-name">DevOps & Tools</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 30%"></div>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text);">Git, Docker, AWS, Cloud, VmWare</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=500&h=300&fit=crop" alt="Facial Recognition" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Real-time Emotion detection </h3>
+                    <span class="project-status status-production">In Production</span>
+                    <p class="project-description">
+                        Built a real-time facial recognition system using DeepFace and custom CNNs with gamification 
+                        features for educational applications. Achieved 90% accuracy with emotion-based feedback.
+                        <br>
+                        <strong style="color: var(--secondary);">Upcoming Features:</strong>
+                        <ul style="color: var(--text); margin-top: 0.5rem; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 1rem; padding-bottom: 1rem;">
+                            <li>Multi-face tracking</li>
+                            <li>Age, voice, and emotion recognition</li>
+                        </ul>
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">DeepFace</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Steamlit</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?w=500&h=300&fit=crop" alt="Robotics" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Smart Parking System (C++ Core with Python AI)</h3>
+                    <span class="project-status status-production">University Funded</span>
+                    <p class="project-description">
+                        Engineered a smart parking solution using C++ for real-time control of embedded systems and sensor integration.
+                        Python-based AI module performs traffic flow prediction and dynamic slot allocation using per-vehicle profiling.
+                        Once deployed, the system autonomously guides vehicles to optimal parking spots based on live occupancy data,
+                        predicted arrival rates, and historical usage patterns—minimizing wait times and maximizing space efficiency.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Python (AI)</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Embedded Systems</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop" alt="Game Development" class="project-image">
+                <div class="project-info">
+                    <h3 class="project-title">Combat Mechanics Engine</h3>
+                    <span class="project-status status-development">In Development</span>
+                    <p class="project-description">
+                        Creating smooth combat mechanics in Unity and Unreal Engine, inspired by Berserk and 
+                        Turbo Overkill. Features advanced AI enemy behavior and physics-based interactions.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Unreal Engine</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Blender</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedtect Feature Section -->
+    <section id="wedtect" class="wedtect-section">
+        <div class="wedtect-header">
+            <h1 class="wedtect-title">WEDTECT AI</h1>
+            <p class="wedtect-subtitle">Industrial Pipeline Defect Detection System</p>
+        </div>
+        
+        <div style="background: var(--dark); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem;">
+            <p style="color: var(--text); line-height: 1.8; font-size: 1.1rem;">
+                Wedtect is my flagship AI project that revolutionizes industrial pipeline inspection using 
+                state-of-the-art YOLOv8 Oriented Bounding Box (OBB) models. The system detects multiple defect 
+                types including cracks, leaks, holes, and dents with severity classification (Good/Bad/Urgent).
+            </p>
+        </div>
+
+        <div class="wedtect-features">
+            <div class="wedtect-feature">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Multi-Defect Detection</h3>
+                <p style="color: var(--text);">Identifies cracks, leaks, holes, and dents in real-time</p>
+            </div>
+            <div class="wedtect-feature">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Real-Time Processing</h3>
+                <p style="color: var(--text);">Processes video streams at 30+ FPS on Mobile GPU</p>
+            </div>
+            <div class="wedtect-feature">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">High Accuracy</h3>
+                <p style="color: var(--text);">85%+ mAP@50 on industrial test datasets</p>
+            </div>
+            <div class="wedtect-feature">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Severity Classification</h3>
+                <p style="color: var(--text);">Automatic urgency assessment for maintenance</p>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">85.8%</div>
+                <div class="metric-label">Detection Accuracy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">0.02s</div>
+                <div class="metric-label">Processing Time</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1.27K+</div>
+                <div class="metric-label">Images Processed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Defect Types</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn btn-primary" onclick="alert('Contact me for a live demo of Wedtect AI!')">Request Demo</button>
+        </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section id="education">
+        <h2 class="section-title">Education & Achievements</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">B.Sc. Computer Science</h3>
+                    <p style="color: var(--primary);">Polytechnique Sousse, Tunisia</p>
+                    <p style="color: var(--text);">2023 - 2026 | GPA: 15.61/20 (Top 5)</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">Vice President</h3>
+                    <p style="color: var(--primary);">ARSII Poly Club</p>
+                    <p style="color: var(--text);">Dec 2024 - Dec 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">General Secretary</h3>
+                    <p style="color: var(--primary);">ACM POLY</p>
+                    <p style="color: var(--text);">Oct 2024 - Oct 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">Resource Humain</h3>
+                    <p style="color: var(--primary);">CRIPES</p>
+                    <p style="color: var(--text);">Sep 2024 - Sep 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">3rd Place - BTech 2024</h3>
+                    <p style="color: var(--text);">National Technology Competition</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">3rd Place - EIMS IT Challenge</h3>
+                    <p style="color: var(--text);">Enterprise Information Management Systems</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div style="background: var(--dark-light); padding: 1.5rem; border-radius: 0.5rem;">
+                    <h3 style="color: var(--secondary);">Founder & President - Association VOID</h3>
+                    <p style="color: var(--text);">2021-2023 | Led 35 members at age 18</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin: 3rem 0 2rem; color: var(--secondary);">Certifications</h3>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <a href="https://www.credly.com/users/ahmed-dinari" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
+                    <h4 style="color: var(--light);">Azure AI Fundamentals (AI-900)</h4>
+                    <p style="color: var(--text); margin-top: 0.5rem;">Microsoft Certified</p>
+                </a>
+            </div>
+            <div class="cert-card">
+                <h4 style="color: var(--light);">Python Programming Certification</h4>
+                <p style="color: var(--text); margin-top: 0.5rem;">Advanced Level</p>
+            </div>
+            <div class="cert-card">
+                <h4 style="color: var(--light);">Project Management</h4>
+                <p style="color: var(--text); margin-top: 0.5rem;">In Progress</p>
+            </div>
+            <div class="cert-card">
+                <a href="https://www.credly.com/users/ahmed-dinari" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
+                    <h4 style="color: var(--light);">Credly Profile</h4>
+                    <p style="color: var(--text); margin-top: 0.5rem;">View badges & certifications</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Build Something Amazing Together</h3>
+                <p style="color: var(--text); margin-bottom: 2rem;">
+                    I'm currently seeking opportunities in AI, Computer Vision, and Deep Learning. 
+                    Whether you have a challenging project or an exciting role, I'd love to hear from you.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:ahmed.dinari@polytechnicien.tn" class="contact-link">
+                        <span>📧</span> ahmed.dinari@polytechnicien.tn
+                    </a>
+                    <a href="tel:+21693754906" class="contact-link">
+                        <span>📱</span> +216 93 754 906
+                    </a>
+                    <a href="https://github.com/amedo007-poly" target="_blank" class="contact-link">
+                        <span>💻</span> GitHub: amedo007-poly
+                    </a>
+                    <a href="https://linkedin.com/in/ahmed-dinari-72b00a306" target="_blank" class="contact-link">
+                        <span>💼</span> LinkedIn: Ahmed Dinari
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; background: var(--dark-light);">
+        <p style="color: var(--text);">© 2025 Ahmed Dinari. Built with passion for AI innovation.</p>
+    </footer>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Generate floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 15; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 10 + 5 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 20 + 20) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Contact form handler
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            // Create mailto link
+            const subject = `Portfolio Contact from ${data.name}`;
+            const body = `Name: ${data.name}%0D%0AEmail: ${data.email}%0D%0A%0D%0AMessage:%0D%0A${data.message}`;
+            window.location.href = `mailto:ahmed.dinari@polytechnicien.tn?subject=${subject}&body=${body}`;
+            
+            // Reset form
+            e.target.reset();
+            alert('Thank you for your message! I will get back to you soon.');
+        });
+
+        // Smooth reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Dynamic typing effect for hero title
+        const heroTitle = document.querySelector('.hero h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                heroTitle.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        setTimeout(typeWriter, 1000);
+
+        // Add hover effect to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) translateY(-10px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) translateY(0)';
+            });
+        });
+
+        // Add click to view project details (you can expand this)
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.project-title').textContent;
+                console.log(`View more about: ${title}`);
+                // You can add modal or redirect to project page here
+            });
+        });
+
+        // Theme customization (optional - for future dark/light toggle)
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+
+        initTheme();
+    </script>
+</body>
+>>>>>>> f7fb2557c8369ce3ee78209d005bc799996b432a
 </html>
