@@ -1,0 +1,123 @@
+CODE NOTES - Portfolio (index.html)
+
+Date: 2025-10-03
+Author: Automated assistant (edits tracked)
+
+Purpose
+-------
+This file records an in-depth understanding of the project's `index.html`, the design decisions and theory behind it, and a changelog of modifications applied during this session. It is intended to help the maintainer (Ahmed) track what the page does and what edits were made.
+
+Project overview
+----------------
+- Single-file static portfolio page: all HTML, CSS, and JS are contained in `index.html`.
+- Major sections: nav, hero, about, skills, projects, wedtect (feature), education/timeline, contact, footer.
+- Theme: dark, modern, gradients (purple -> cyan), with animations and micro-interactions.
+- JS: small vanilla scripts for loader, navbar scroll effect, mobile menu toggle, particles, contact form (mailto), intersection reveal, typing effect.
+
+Detailed code understanding
+---------------------------
+1) Structure and semantics
+- Semantic use of `<section>` and `<h2>` for content areas. Navigation is an unordered list of internal links.
+- Some interactive elements use non-semantic elements (e.g., `.menu-toggle` is a `div`), which reduces keyboard/assistive accessibility.
+- Images in projects come from external Unsplash URLs (no explicit width/height attributes). They include `alt` text.
+
+2) Styling and layout
+- CSS variables defined in `:root` provide primary/secondary colors and semantic colors (dark, light, text).
+- Global reset with `* { margin:0; padding:0; box-sizing:border-box }`.
+- Navigation is fixed to the top with `backdrop-filter` for blur and a scrolled state toggled by JS.
+- `.hero` uses `min-height:100vh` for a full-screen intro. Typography uses Inter system font stack.
+- Grids: `.skills-grid`, `.projects-grid`, `.metrics-grid`, `.cert-grid` use CSS grid with `repeat(auto-fit, minmax(...))` for responsiveness.
+- Animations: `fadeInUp`, `pulse`, `glow`, `float`, `fillBar`, etc.
+- Some CSS patterns could be improved (e.g., using classes to toggle animations rather than setting `style.animation` inline in JS).
+
+3) JavaScript behavior
+- Loader: adds `.hidden` to `#loader` after a 500ms delay on window load.
+- Navbar `scrolled` class: toggled when scrollY > 50.
+- Mobile menu: `menuToggle` toggles `.active` on `#navLinks`. The toggle is powered by a `div` with `span` lines.
+- Particles: 15 `.particle` divs are programmatically created with random sizes/positions/durations. These animate via the `float` keyframes.
+- Contact form: intercepted submit event; builds a `mailto:` URL with the form values and navigates to it, then resets and shows an alert.
+- IntersectionObserver: watches all `<section>` elements and sets `entry.target.style.animation = 'fadeInUp 0.6s ease forwards'` when intersecting.
+- Typing effect: extracts the hero h1 text and types it out character-by-character.
+- Misc: project card hover/click handlers for scale and click-to-console logging.
+
+Design theory observed
+----------------------
+- Visual hierarchy (hero > projects > features) with gradients and motion to emphasize modern tech-focused branding.
+- Micro-interactions (button ripple, hover scale) to create tactile, responsive UI.
+- Reuse of card style for skills/projects/certs to maintain visual consistency.
+- Progressive enhancement: page is readable without JS but enhanced when JS is enabled.
+
+Changelog of edits made in this session
+--------------------------------------
+1) 2025-10-03 - Center Wedtect section (applied)
+   - File: `index.html`
+   - Edit: In the CSS block, replaced `.wedtect-section { margin: 3rem 0; }` with:
+     - `margin: 3rem auto;` to center horizontally
+     - `max-width: 1200px;` to match other sections
+     - Added rules to ensure inner blocks align: `.wedtect-section > .wedtect-header, .wedtect-section > .wedtect-features, .wedtect-section > .metrics-grid { max-width: 100%; margin-left: auto; margin-right: auto; }`
+   - Reason: The Wedtect block was full-width and visually left-aligned; other sections use a centered max-width container.
+   - Status: Applied and saved.
+
+Notes and next recommended edits (suggested priority)
+----------------------------------------------------
+- Accessibility: change `.menu-toggle` from `div` to `<button aria-controls="navLinks" aria-expanded="false">` and update JS to toggle `aria-expanded`.
+- Add `rel="noopener noreferrer"` to links with `target="_blank"` to prevent window.opener security issue.
+- Add `loading="lazy"` and width/height attributes to project images to improve LCP and layout stability.
+- Add a small CSS rule for `prefers-reduced-motion` to disable or reduce animations.
+- Replace inline `entry.target.style.animation = ...` with toggling a `reveal` class and define animation in CSS.
+- Replace `mailto:` form handler with a progressive enhancement option such as Formspree or Netlify Forms if you need reliable form submission.
+
+How to test the Wedtect centering locally
+-----------------------------------------
+- Open `index.html` in your browser (double click or serve with any static server).
+- Resize the browser to desktop width and check that the Wedtect section is centered and its width matches other centered sections.
+- Check mobile viewport (responsive) to ensure it still fills width appropriately.
+
+Current todo status tracked here (local plan)
+---------------------------------------------
+- Inspect Wedtect centering: completed
+- Apply CSS fix: completed
+- Verify visually: not started — please open the file in your browser and confirm
+- Create code notes file: completed (this file)
+
+If you'd like, I can now implement one or more of the suggested improvements and update this changelog accordingly. Tell me which items to prioritize (I recommend: accessible nav toggle + lazy images + rel noopener).
+
+2) 2025-10-03 - Add profile photo to hero (applied)
+  - Files: `index.html`
+  - Edit: Added an `<img src="Photo4Porfolio-Cop.jpeg" alt="Ahmed Dinari" class="hero-photo">` inside the `.hero` section (before `.hero-content`).
+  - CSS: Added `.hero-photo` rules to position the image at the top-right on desktop (`position:absolute; top:2.5rem; right:2.5rem; width:140px; height:140px; border-radius:50%`) and a responsive rule to place it centered above the hero content on small screens (`@media (max-width:768px)` sets it to `position:relative; margin:0 auto 2rem; width:120px`).
+  - Reason: Provide a personal photo of the author; top-right placement keeps the hero text centered while showing identity; mobile places the photo above content to avoid overlap.
+  - Status: Applied and saved. Verify that `Photo4Porfolio-Cop.jpeg` exists in the project root so the image displays correctly.
+
+3) 2025-10-03 - Center and enlarge hero photo (applied)
+  - Files: `index.html`
+  - Edit: Moved the `<img class="hero-photo">` inside `.hero-content` above the `<h1>` so the photo appears centered directly above the name. Increased the photo size to 200×200px on desktop and 160×160px on small screens. Updated CSS to use centered block layout with margin and shadow.
+  - Reason: User requested the photo to be bigger and centered above the name.
+  - Status: Applied and saved.
+
+4) 2025-10-03 - Add extra timeline entries (applied)
+   - Files: `index.html`
+   - Edit: Inserted three new `.timeline-item` blocks into the Education section immediately after the B.Sc. entry:
+     - Vice President — ARSII Poly Club (Dec 2024 - Dec 2025)
+     - General Secretary — ACM POLY (Oct 2024 - Oct 2025)
+     - Resource Humain — CRIPES (Sep 2024 - Sep 2025)
+   - Reason: User requested additional leadership/club roles to be shown in the Education & Achievements timeline.
+   - Status: Applied and saved.
+
+5) 2025-10-03 - Add Credly profile links to Certifications (applied)
+  - Files: `index.html`
+  - Edit: Wrapped the Azure AI Fundamentals card in an anchor linking to https://www.credly.com/users/ahmed-dinari and added an additional "Credly Profile" card linking to the same URL. Links open in a new tab with `rel="noopener noreferrer"`.
+  - Reason: Provide direct access to official badges and verification.
+  - Status: Applied and saved.
+
+6) 2025-10-03 - Fix project "Upcoming Features" list and styling (applied)
+  - Files: `index.html`
+  - Edit: Corrected malformed HTML where the `<ul>` was empty and `<li>`s were outside it. Moved the `<li>` elements inside the `<ul>` and added CSS rules so lists inside `.project-description` use `var(--text)` color and proper spacing to avoid collision with the bottom of the card.
+  - Reason: Fix visual collision and ensure list text matches project description color.
+  - Status: Applied and saved.
+
+7) 2025-10-03 - Fix Smart Parking project markup (applied)
+  - Files: `index.html`
+  - Edit: Replaced a malformed `project-card` block for the Smart Parking System with a properly nested and indented version. Ensures correct opening/closing tags and consistent structure with other project cards.
+  - Reason: Prevent rendering and nesting issues around lines ~900-915 that could break layout.
+  - Status: Applied and saved.
